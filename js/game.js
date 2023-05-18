@@ -39,13 +39,13 @@ function game() {
     tie = 0;
 
     for (let i = 1; i <= 5; i++) {
-        choice = prompt("please choose 1, 2, or 3\n1=Rock, 2=Paper, 3=Scissors");
+        choice = prompt("please type 1, 2, or 3\n1=Rock, 2=Paper, 3=Scissors");
         console.log("you chose: ", return_choice(choice));
         compChoice = getComputerChoice().toString();
         console.log("The computer chose: ", return_choice(compChoice))
 
         winner = playRound(return_choice(choice), return_choice(compChoice));
-        alert(`Winner : ${winner}`);
+        alert(`Computer chose: ${return_choice(compChoice)}\nPlayer chose: ${return_choice(choice)}\nWinner : ${winner}`);
         if (winner === "Computer is the winner") {
             computerWins++
         } else if (winner === "Player is the winner") {
