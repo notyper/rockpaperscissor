@@ -40,6 +40,9 @@ function newGame() {
     computerTotal.innerHTML = 0;
     playerTotal.innerHTML = 0;
     ties.innerHTML = 0;
+    computerChoice.innerHTML = "Computer Chooses";
+    playerChoice.innerHTML = "Player Chooses";
+    winDisplay.innerHtml = "Let's play a new game";
 
 }
 
@@ -96,3 +99,5 @@ btnScissors.addEventListener('click', () => {
     winDisplay.innerHTML = winner;
     updateScore(winner);
 });
+
+newGame();
