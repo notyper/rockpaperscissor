@@ -22,12 +22,17 @@ function playRound(playerSelection, computerSelection) {
     let winner = "";
     if (playerSelection === computerSelection) {
         winner = "It is a tie";
-    } else if ((playerSelection === "Rock" && computerSelection === "Paper") 
+    } else if ((playerSelection === "Rock" && computerSelection === "Scissors") 
             || (playerSelection === "Paper" && computerSelection === "Rock")
             || (playerSelection === "Scissors" && computerSelection === "Paper")) {
         winner = "Player is the winner";
     } else {
         winner = "Computer is the winner"}
+    
+        computerChoice.innerHTML = `The computer chose: ${computerSelection}`;
+        playerChoice.innerHTML = `You chose: ${playerSelection}`;
+        winDisplay.innerHtml = `${winner}`;
+
         console.log(`Computer chose: ${computerSelection}\nPlayer chose: ${playerSelection}\nWinner : ${winner}`);
     return winner;
     // return(`Player: ${playerSelection} : Computer ${computerSelection}`)
