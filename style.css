@@ -1,0 +1,43 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+h1 {
+    background-color: aqua;
+    text-align: center;
+}
+
+.totals {
+    display: flex;
+    justify-content: space-evenly;
+}
+#scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#results{
+    text-align: center;
+}
+
+#computerTotal, #playerTotal, #ties {
+    text-align: center;
+}
+#play {
+    display: flex;
+
+    justify-self: center;
+}
+body {
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
