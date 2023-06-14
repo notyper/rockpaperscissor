@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
-    <div class = "info">
-        <p id = "score">Score</p>
-        <p id = "results">Results</p>
+    <div class="info">
+        <p id="score">Score</p>
+        <div class="totals">
+            <div class="compTot">
+                <p>Computer Score</p>
+                <p id="computerTotal">0</p>
+            </div>
+            <div class="playerTot">
+                <p>Player Total</p>
+                <p id="playerTotal">0</p>
+            </div>
+            <div class="tiesTot">
+                <p>Total Ties</p>
+                <p id="ties">0</p>
+            </div>
+        </div>
+        <p id="results">Results</p>
         <div id="scoreboard">
             <p id="computerChoice">Computer</p>
             <p id="playerChoice">PLayer</p>
@@ -20,4 +36,5 @@
     </div>
     <script type="text/javascript" src="js/game.js"></script>
 </body>
+
 </html>
