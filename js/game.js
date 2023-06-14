@@ -15,8 +15,8 @@ function return_choice (selected){
 
 function getComputerChoice(){
     let comp_choice = Math.floor(Math.random() * 3) +1;
-
-    return comp_choice;
+console.log(comp_choice);
+    return return_choice(comp_choice.toString());
 }
 function playRound(playerSelection, computerSelection) {
     let winner = "";
@@ -28,6 +28,7 @@ function playRound(playerSelection, computerSelection) {
         winner = "Player is the winner";
     } else {
         winner = "Computer is the winner"}
+        console.log(`Computer chose: ${computerSelection}\nPlayer chose: ${playerSelection}\nWinner : ${winner}`);
     return winner;
     // return(`Player: ${playerSelection} : Computer ${computerSelection}`)
   }
@@ -73,15 +74,15 @@ const btnScissors = document.querySelector('#scissors');
 const winDisplay = document.querySelector('#results');
 
 btnRock.addEventListener('click', () => {
-    winner = (playRound(1,getComputerChoice()));
+    winner = (playRound("Rock",getComputerChoice()));
     winDisplay.innerHTML = winner;
     
 });
 btnPaper.addEventListener('click', () => {
-    winner = (playRound(2,getComputerChoice()));
+    winner = (playRound("Paper",getComputerChoice()));
     winDisplay.innerHTML = winner;
 });
 btnScissors.addEventListener('click', () => {
-    winner = (playRound(3,getComputerChoice()));
+    winner = (playRound("Scissors",getComputerChoice()));
     winDisplay.innerHTML = winner;
 });
