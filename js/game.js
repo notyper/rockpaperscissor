@@ -1,3 +1,6 @@
+
+
+
 function return_choice (selected){
     switch (selected){
         case "1": return "Rock";
@@ -45,7 +48,7 @@ function game() {
         console.log("The computer chose: ", return_choice(compChoice))
 
         winner = playRound(return_choice(choice), return_choice(compChoice));
-        alert(`Computer chose: ${return_choice(compChoice)}\nPlayer chose: ${return_choice(choice)}\nWinner : ${winner}`);
+        console.log(`Computer chose: ${return_choice(compChoice)}\nPlayer chose: ${return_choice(choice)}\nWinner : ${winner}`);
         if (winner === "Computer is the winner") {
             computerWins++
         } else if (winner === "Player is the winner") {
@@ -54,16 +57,31 @@ function game() {
             tie++
         }
     }
-    alert(`Computer: ${computerWins}\nPlayer: ${playerWins}\nTies: ${tie}`)
+    console.log(`Computer: ${computerWins}\nPlayer: ${playerWins}\nTies: ${tie}`)
 
 }
 // print opening message
 console.log("welcome to the game");
 alert("Welcome to Rock Paper Scissors")
 // prompt for choice
-game();
+//game();
 
-// read choice
-// generate random computer choice
-// determine winner
-// output winner
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
+
+const winDisplay = document.querySelector('#results');
+
+btnRock.addEventListener('click', () => {
+    winner = (playRound(1,getComputerChoice()));
+    winDisplay.innerHTML = winner;
+    
+});
+btnPaper.addEventListener('click', () => {
+    winner = (playRound(2,getComputerChoice()));
+    winDisplay.innerHTML = winner;
+});
+btnScissors.addEventListener('click', () => {
+    winner = (playRound(3,getComputerChoice()));
+    winDisplay.innerHTML = winner;
+});
