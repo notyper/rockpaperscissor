@@ -12,7 +12,6 @@ function return_choice(selected) {
 
 function getComputerChoice() {
     let comp_choice = Math.floor(Math.random() * 3) + 1;
-    console.log(comp_choice);
     return return_choice(comp_choice.toString());
 }
 function playRound(playerSelection, computerSelection) {
@@ -31,48 +30,59 @@ function playRound(playerSelection, computerSelection) {
     playerChoice.innerHTML = `You chose: ${playerSelection}`;
     winDisplay.innerHtml = `${winner}`;
 
-    console.log(`Computer chose: ${computerSelection}\nPlayer chose: ${playerSelection}\nWinner : ${winner}`);
     return winner;
-    // return(`Player: ${playerSelection} : Computer ${computerSelection}`)
 }
 
 function newGame() {
     computerTotal.innerHTML = 0;
     playerTotal.innerHTML = 0;
     ties.innerHTML = 0;
-    computerChoice.innerHTML = "Computer Chooses";
-    playerChoice.innerHTML = "Player Chooses";
+    computerChoice.innerHTML = "Waiting for Player";
+    playerChoice.innerHTML = "Waiting for Player";
     winDisplay.innerHtml = "Let's play a new game";
-
+    const elements = document.querySelectorAll(".game_button");
+    for (const btn of elements) {
+        btn.style.visibility = "visible";
+    };
+    btnPlayGame.style.visibility = "hidden";
 }
 
 function updateScore(winner) {
-
+    let temp = 0;
     if (winner === "Computer is the winner") {
-        let temp = parseInt(computerTotal.innerHTML) + 1
+        temp = parseInt(computerTotal.innerHTML) + 1
         computerTotal.innerHTML = temp;
-        if (temp === 5) {
-            alert("Computer has won");
-            newGame();
-        }
+
     } else if (winner === "Player is the winner") {
-        let temp = parseInt(playerTotal.innerHTML) + 1
+        temp = parseInt(playerTotal.innerHTML) + 1
         playerTotal.innerHTML = temp;
-        if (temp === 5) {
-            alert("Player has won");
-            newGame();
-        }
     } else {
-        let temp = parseInt(ties.innerHTML) + 1
+        temp = parseInt(ties.innerHTML) + 1
         ties.innerHTML = temp;
     }
 }
 
+function determineWinner() {
+    if (computerTotal.innerHTML === '5') {
+        winDisplay.innerHTML = "Computer has won the 5 game match";
+        const elements = document.querySelectorAll(".game_button");
+        for (const btn of elements) {
+            btn.style.visibility = "hidden";
+        };
+        btnPlayGame.style.visibility = "visible";
 
+    } else if (playerTotal.innerHTML === '5') {
+        winDisplay.innerHTML = "Player has won the 5 game match";
+        const elements = document.querySelectorAll(".game_button");
+        for (const btn of elements) {
+            btn.style.visibility = "hidden";
+        };
+        btnPlayGame.style.visibility = "visible";
+    }
+}
 
 // print opening message
 console.log("welcome to the game");
-alert("Welcome to Rock Paper Scissors")
 
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
@@ -82,22 +92,33 @@ const winDisplay = document.querySelector('#results');
 const computerTotal = document.querySelector('#computerTotal');
 const playerTotal = document.querySelector('#playerTotal');
 const ties = document.querySelector('#ties');
+const btnPlayGame = document.querySelector('#play');
+
+btnPlayGame.addEventListener('click', () => {
+    newGame();
+});
 
 btnRock.addEventListener('click', () => {
     winner = (playRound("Rock", getComputerChoice()));
     winDisplay.innerHTML = winner;
     updateScore(winner);
+    determineWinner();
 
 });
 btnPaper.addEventListener('click', () => {
     winner = (playRound("Paper", getComputerChoice()));
     winDisplay.innerHTML = winner;
     updateScore(winner);
+    determineWinner();
 });
 btnScissors.addEventListener('click', () => {
     winner = (playRound("Scissors", getComputerChoice()));
     winDisplay.innerHTML = winner;
     updateScore(winner);
+    determineWinner();
 });
 
-newGame();
+const elements = document.querySelectorAll(".game_button");
+for (const btn of elements) {
+    btn.style.visibility = "hidden";
+}
