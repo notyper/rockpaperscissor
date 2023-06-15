@@ -26,8 +26,8 @@ function playRound(playerSelection, computerSelection) {
         winner = "Computer is the winner"
     }
 
-    computerChoice.innerHTML = `The computer chose: ${computerSelection}`;
-    playerChoice.innerHTML = `You chose: ${playerSelection}`;
+    computerChoice.innerHTML = `${computerSelection}`;
+    playerChoice.innerHTML = `${playerSelection}`;
     winDisplay.innerHtml = `${winner}`;
 
     return winner;
@@ -39,7 +39,7 @@ function newGame() {
     ties.innerHTML = 0;
     computerChoice.innerHTML = "Waiting for Player";
     playerChoice.innerHTML = "Waiting for Player";
-    winDisplay.innerHtml = "Let's play a new game";
+    winDisplay.innerHTML = "Let's play a new game";
     const elements = document.querySelectorAll(".game_button");
     for (const btn of elements) {
         btn.style.visibility = "visible";

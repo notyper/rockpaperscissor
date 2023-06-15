@@ -2,42 +2,77 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+
 h1 {
-    background-color: aqua;
+    color: white;
+    background-color: rgb(76, 0, 255);
     text-align: center;
 }
 
 .totals {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    gap: 20px;
+    border-style: double;
+    border-color: blue;
+    padding: 10px;
 }
+
 #scoreboard {
     display: flex;
     justify-content: center;
     gap: 20px;
+    border-style: double;
+    border-color: blue;
+    padding: 10px;
 }
 
 .action_buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 20px;
 }
 
-#results{
+#results {
+    text-align: center;
+    font-size: larger;
+}
+
+#computerTotal,
+#playerTotal,
+#ties {
     text-align: center;
 }
 
-#computerTotal, #playerTotal, #ties {
-    text-align: center;
-}
 #play {
     display: flex;
-
+    justify-content: center;
     justify-self: center;
+    align-items: center;
+    font-size: larger;
 }
+
 body {
-    display: flex;flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.game_button,
+#play {
+    width: 110px;
+    margin: 10px;
+    height: 40px;
+    font-size: larger;
 
 }
